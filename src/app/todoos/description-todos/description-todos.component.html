@@ -1,7 +1,7 @@
 <div>
   <ng-container *ngIf="descriptionTodoItem; else noDescription">
-    <h3>{{descriptionTodoItem.title}}</h3>
-    <p>{{descriptionTodoItem.description}}</p>
+    <h3>{{descriptionTodoItem.data.title}}</h3>
+    <p>{{descriptionTodoItem.data.description}}</p>
   </ng-container>
   <ng-template #noDescription>
     <h2>Тыкни куданить</h2>

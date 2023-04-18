@@ -1,5 +1,5 @@
 <div>
   <div class="title-item" *ngFor="let i of todoItem | async" (click)="outItemTodo.emit(i)">
-    <h3>{{i.title}}</h3>
+    <h3>{{i.data.title}}</h3>
   </div>
 </div>

@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {Observable} from "rxjs";
-import {ItodoItems} from "./todooModels";
-import {TodooService} from "./todooService";
+import { Component } from '@angular/core';
+import { Observable } from "rxjs";
+import { Itodo, ItodoVsId } from "src/app/todoos/todooModels";
+import { TodooService } from "src/app/todoos/todooService";
 
 @Component({
   selector: 'app-todoos',
@@ -9,22 +9,19 @@ import {TodooService} from "./todooService";
   styleUrls: ['./todoos.component.scss']
 })
 export class TodoosComponent {
-  todoItem?: Observable<ItodoItems[]>
-  inputselectedItemTodoo?: ItodoItems
+  todoItem?: Observable<ItodoVsId[]>;
 
-  ids: any
+  inputselectedItemTodoo?: ItodoVsId;
+
   constructor(private collection: TodooService) {
-
-    this.todoItem = this.collection.itemCollection.valueChanges()
-
-    this.ids = this.collection.itemCollection.doc()
-    console.log(this.ids)
-
+    this.todoItem = this.collection.itemCollectionVsId;
   }
-  sendDataFromForm(sendingData: ItodoItems) {
-    this.collection.itemCollection.add(sendingData)
+
+  sendDataFromForm(sendingData: Itodo) {
+    this.collection.itemCollection.add(sendingData);
   }
-  selectedItemTodoo(selectedItemTodoo: ItodoItems) {
-    this.inputselectedItemTodoo = selectedItemTodoo
+
+  selectedItemTodoo(selectedItemTodoo: ItodoVsId) {
+    this.inputselectedItemTodoo = selectedItemTodoo;
   }
 }

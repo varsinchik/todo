@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {ItodoItems} from "../todooModels";
-import {Observable} from "rxjs";
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ItodoVsId } from "../todooModels";
+import { Observable } from "rxjs";
+
 @Component({
   selector: 'app-title-todos',
   templateUrl: './title-todos.component.html',
@@ -9,9 +10,9 @@ import {Observable} from "rxjs";
 export class TitleTodosComponent {
 
   @Input()
-  todoItem?: Observable<ItodoItems[]>
+  todoItem?: Observable<ItodoVsId[]>
 
   @Output()
-  outItemTodo = new EventEmitter<ItodoItems>()
+  outItemTodo = new EventEmitter<ItodoVsId>()
 
 }

@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {ItodoItems} from "../todooModels";
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, FormGroup } from "@angular/forms";
+import { Itodo } from "src/app/todoos/todooModels";
 
 @Component({
   selector: 'app-add-todos',
@@ -10,7 +10,7 @@ import {ItodoItems} from "../todooModels";
 export class AddTodosComponent {
 
   @Output()
-  addedTodoData = new EventEmitter<ItodoItems>();
+  addedTodoData = new EventEmitter<Itodo>();
 
   formTodoItem: FormGroup;
 

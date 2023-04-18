@@ -1,6 +1,9 @@
+export interface ItodoVsId {
+  id: string;
+  data: Itodo;
+}
 
-
-export interface ItodoItems {
-  title: string,
-  description: string
+export interface Itodo {
+  title: string;
+  description: string;
 }

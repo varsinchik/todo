@@ -1,5 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {ItodoItems} from "../todooModels";
+import { Component, Input } from '@angular/core';
+import { ItodoVsId } from "src/app/todoos/todooModels";
+
 @Component({
   selector: 'app-description-todos',
   templateUrl: './description-todos.component.html',
@@ -7,6 +8,5 @@ import {ItodoItems} from "../todooModels";
 })
 export class DescriptionTodosComponent {
   @Input()
-  descriptionTodoItem?: ItodoItems
-
+  descriptionTodoItem?: ItodoVsId;
 }

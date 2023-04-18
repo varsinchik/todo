@@ -1,15 +1,15 @@
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 
-import {BrowserModule} from '@angular/platform-browser';
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from "src/app/app-routing.module";
+import { AppComponent } from "src/app/app.component";
 
-import {RouterModule} from '@angular/router';
-import {AngularFireModule} from "@angular/fire/compat";
-import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {TodoosModule} from "./todoos/todoos.module";
-import {FireConfig} from "../../fireConfig";
+import { RouterModule } from '@angular/router';
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TodoosModule } from "src/app/todoos/todoos.module";
+import { FireConfig } from "fireConfig";
 
 @NgModule({
   declarations: [
@@ -28,4 +28,5 @@ import {FireConfig} from "../../fireConfig";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

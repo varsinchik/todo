@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
-import { Itodo } from "src/app/todoos/todooModels";
+import { TodooService } from "src/app/todoos/todooService";
 
 @Component({
   selector: 'app-add-todos',
@@ -8,13 +8,9 @@ import { Itodo } from "src/app/todoos/todooModels";
   styleUrls: ['./add-todos.component.scss']
 })
 export class AddTodosComponent {
-
-  @Output()
-  addedTodoData = new EventEmitter<Itodo>();
-
   formTodoItem: FormGroup;
 
-  constructor() {
+  constructor(private _todooService: TodooService) {
     this.formTodoItem = new FormGroup({
       title: new FormControl(''),
       description: new FormControl('')
@@ -22,8 +18,10 @@ export class AddTodosComponent {
   }
 
   addTodo() {
-    const formData = this.formTodoItem.value;
-    this.addedTodoData.emit(formData);
-    this.formTodoItem.reset();
+    if (this.formTodoItem.valid) {
+      const formData = this.formTodoItem.value;
+      this._todooService.addItemInCollection(formData)
+      this.formTodoItem.reset();
+    }
   }
 }

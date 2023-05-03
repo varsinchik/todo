@@ -1,4 +1,4 @@
-<app-add-todos (addedTodoData)="sendDataFromForm($event)"></app-add-todos>
+<button (click)="navAddForm()">Добавить еще одну</button>
 <hr>
 <div>
   <app-title-todos [todoItem]="todoItem" (outItemTodo)="selectedItemTodoo($event)"></app-title-todos>

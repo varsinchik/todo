@@ -21,4 +21,9 @@ export class TodooService {
       ))
     );
   }
+
+  addItemInCollection(sendingData: Itodo) {
+    this.itemCollection.add(sendingData);
+  }
+
 }

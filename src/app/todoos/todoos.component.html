@@ -2,5 +2,9 @@
 <hr>
 <div>
   <app-title-todos [todoItem]="todoItem" (outItemTodo)="selectedItemTodoo($event)"></app-title-todos>
-  <app-description-todos [descriptionTodoItem]="inputselectedItemTodoo"></app-description-todos>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
 </div>
+
+

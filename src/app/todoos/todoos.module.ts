@@ -6,18 +6,22 @@ import {DescriptionTodosComponent} from "./description-todos/description-todos.c
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AddTodosComponent } from './add-todos/add-todos.component';
 import {TodooService} from "./todooService";
+import { EditTodoComponent } from './add-todos/edit-todo/edit-todo.component';
+import { RouterOutlet } from "@angular/router";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterOutlet
   ],
   declarations: [
     TodoosComponent,
     TitleTodosComponent,
     DescriptionTodosComponent,
-    AddTodosComponent
+    AddTodosComponent,
+    EditTodoComponent
   ],
   exports: [
     TodoosComponent,

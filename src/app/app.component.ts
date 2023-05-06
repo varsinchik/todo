@@ -14,8 +14,7 @@ export class AppComponent implements OnInit {
   constructor(
     private _router: Router,
     private _location: Location) {
-
-  }
+  };
 
   ngOnInit(): void {
     this._router.events.subscribe(() => console.log(this._location.getState()))
@@ -24,12 +23,10 @@ export class AppComponent implements OnInit {
         this.hasHistoy = !!this._location.getState();
       }
     })
+  };
 
-  }
 //TODO переделать back()
   back() {
     this._location.back()
-  }
-
-
+  };
 }

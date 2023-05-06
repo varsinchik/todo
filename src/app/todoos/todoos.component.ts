@@ -22,9 +22,10 @@ export class TodoosComponent {
 
   selectedItemTodoo(selectedItemTodoo: ItodoVsId) {
     this.inputselectedItemTodoo = selectedItemTodoo;
+    this._router.navigate(['', selectedItemTodoo.id]);
   }
 
   navAddForm() {
-    this._router.navigate(['add-form'])
+    this._router.navigate(['add-form']);
   }
 }

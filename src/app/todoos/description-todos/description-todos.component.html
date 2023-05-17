@@ -3,6 +3,9 @@
   <ng-container *ngIf="descriptionTodoItem">
     <h3>{{descriptionTodoItem.title}}</h3>
     <p>{{descriptionTodoItem.description}}</p>
-    <button>редактировать</button>
+    <button (click)="show()">выпадашка для редактирования</button>
   </ng-container>
 </div>
+<ng-container *ngIf="showContent | async">
+  <app-edit-todo (outHidden)="hidden($event)"></app-edit-todo>
+</ng-container>

@@ -24,11 +24,11 @@ export class TodooService {
     );
   };
 
-  getDocument(id: string) {
+  getDocument(id: string): Observable<Itodo | undefined> {
     this.item = this._afs.collection('666').doc(id);
     return this.item.valueChanges();
   };
-  addItemInCollection(sendingData: Itodo) {
+  addItemInCollection(sendingData: Itodo): void {
     this.itemCollection.add(sendingData);
   }
 

@@ -1,16 +1,18 @@
 import { Injectable } from "@angular/core";
-import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/compat/firestore";
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from "@angular/fire/compat/firestore";
 import { Itodo, ItodoVsId } from "src/app/todoos/todooModels";
 import { map, Observable } from "rxjs";
 
 @Injectable()
 export class TodooService {
-  itemCollection: AngularFirestoreCollection<Itodo>
+  itemCollection: AngularFirestoreCollection<Itodo>;
+  item?: AngularFirestoreDocument<Itodo>;
 
-  itemCollectionVsId?: Observable<ItodoVsId[]>
+  itemCollectionVsId?: Observable<ItodoVsId[]>;
 
   constructor(private _afs: AngularFirestore) {
     this.itemCollection = this._afs.collection<Itodo>('666');
+
     this.itemCollectionVsId = this.itemCollection.snapshotChanges().pipe(
       map(response => response.map(
         obj => {
@@ -20,9 +22,13 @@ export class TodooService {
         }
       ))
     );
-  }
+  };
 
-  addItemInCollection(sendingData: Itodo) {
+  getDocument(id: string): Observable<Itodo | undefined> {
+    this.item = this._afs.collection('666').doc(id);
+    return this.item.valueChanges();
+  };
+  addItemInCollection(sendingData: Itodo): void {
     this.itemCollection.add(sendingData);
   }
 

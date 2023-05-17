@@ -9,23 +9,18 @@ import { Location } from "@angular/common";
 })
 export class AppComponent implements OnInit {
 
-  hasHistoy: boolean = false;
-
   constructor(
     private _router: Router,
     private _location: Location) {
   };
 
   ngOnInit(): void {
-    this._router.events.subscribe(ev => {
-      if (ev instanceof NavigationEnd) {
-        this.hasHistoy = !!this._location.getState();
-      }
-    })
   };
 
 //TODO переделать back()
   back() {
-    this._location.back();
+    if (this._router.url !== '/') {
+      this._location.back();
+    }
   };
 }
